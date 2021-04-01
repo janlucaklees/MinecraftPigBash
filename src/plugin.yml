@@ -1,5 +1,5 @@
 name: PigBash
 version: 0.0.0
 author: Jan-Luca Klees
-main: de.janlucaklees.pigbash.PigBash
+main: de.janlucaklees.pigbash.main.PigBash
 api-version: 1.16
