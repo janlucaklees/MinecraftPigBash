@@ -10,6 +10,6 @@ public class PigBash extends JavaPlugin {
     }
 
     private void registerCommands() {
-        this.getCommand("pigbash").setExecutor(new PigBashCommand());
+        this.getCommand("pigbash").setExecutor(new PigBashCommand(this));
     }
 }
