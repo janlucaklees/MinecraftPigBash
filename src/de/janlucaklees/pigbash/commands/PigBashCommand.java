@@ -5,9 +5,14 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PigBashCommand implements CommandExecutor {
 
@@ -25,6 +30,8 @@ public class PigBashCommand implements CommandExecutor {
 
             ItemStack sword = this.giveNetheriteSwordToPlayer(player);
             this.registerSwordRemovalTimeout(player, sword);
+
+            this.spawnSomePigsAroundPlayer(player);
 
             return true;
         }
@@ -45,5 +52,9 @@ public class PigBashCommand implements CommandExecutor {
                 player.getInventory().removeItem(item);
             }
         }, 5*20);
+    }
+
+    private void spawnSomePigsAroundPlayer(Player player) {
+        player.getWorld().spawnEntity(player.getLocation(), EntityType.PIG);
     }
 }
