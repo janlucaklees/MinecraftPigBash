@@ -13,7 +13,9 @@
         <CLASSES>
           <root url="jar://$MODULE_DIR$/server/spigot-api-1.16.5-R0.1-20210328.083735-36.jar!/" />
         </CLASSES>
-        <JAVADOC />
+        <JAVADOC>
+          <root url="http://jd.bukkit.org/apidocs/" />
+        </JAVADOC>
         <SOURCES />
       </library>
     </orderEntry>
