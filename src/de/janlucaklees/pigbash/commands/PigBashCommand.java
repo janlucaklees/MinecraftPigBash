@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
@@ -41,6 +42,8 @@ public class PigBashCommand implements CommandExecutor {
 
     private ItemStack giveNetheriteSwordToPlayer(Player player) {
         ItemStack sword = new ItemStack(Material.NETHERITE_SWORD);
+        sword.addEnchantment(Enchantment.DURABILITY, 3);
+        sword.addEnchantment(Enchantment.DAMAGE_ALL, 3);
         player.getInventory().setItemInMainHand(sword);
         return sword;
     }
