@@ -23,22 +23,27 @@ public class PigBashCommand implements CommandExecutor {
             // Get the player
             Player player = (Player) commandSender;
 
-            // Get a Netherite sword
-            ItemStack sword = new ItemStack(Material.NETHERITE_SWORD);
-
-            // Give the player the sword
-            player.getInventory().setItemInMainHand(sword);
-
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
-                @Override
-                public void run() {
-                    player.getInventory().removeItem(sword);
-                }
-            }, 5*20);
+            ItemStack sword = this.giveNetheriteSwordToPlayer(player);
+            this.registerSwordRemovalTimeout(player, sword);
 
             return true;
         }
 
         return false;
+    }
+
+    private ItemStack giveNetheriteSwordToPlayer(Player player) {
+        ItemStack sword = new ItemStack(Material.NETHERITE_SWORD);
+        player.getInventory().setItemInMainHand(sword);
+        return sword;
+    }
+
+    private void registerSwordRemovalTimeout(Player player, ItemStack item) {
+        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable() {
+            @Override
+            public void run() {
+                player.getInventory().removeItem(item);
+            }
+        }, 5*20);
     }
 }
