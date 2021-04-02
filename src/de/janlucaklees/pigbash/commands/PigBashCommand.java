@@ -7,13 +7,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Pig;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class PigBashCommand implements CommandExecutor {
 
